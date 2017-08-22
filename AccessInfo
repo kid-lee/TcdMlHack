@@ -10,20 +10,25 @@ cd /temp
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
 sudo dpkg -i cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
 sudo apt-get update
-sudo apt-get -y install cuda
+sudo apt-get -y install nfs-common
 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
-//install nfs common
-sudo apt install -y nfs-common
+//Install NFS client 
+sudo apt-get -y install nfs-common
+sudo mount -t nfs singlefs-1-vm:/data /mnt
+
 
 //instal install cuDNN v5.1
+sudo dpkg -i /mnt/libcudnn7_7.0.1.13-1+cuda8.0_amd64.deb
+sudo dpkg -i /mnt/libcudnn7-dev_7.0.1.13-1+cuda8.0_amd64.deb
+export CUDA_HOME=/usr/local/cuda
 
-https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v7/prod/8.0_20170802/Ubuntu16_04_x64/libcudnn7_7.0.1.13-1+cuda8.0_amd64-deb
-https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v7/prod/8.0_20170802/Ubuntu16_04_x64/libcudnn7-dev_7.0.1.13-1+cuda8.0_amd64-deb
-https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v7/prod/8.0_20170802/Ubuntu16_04_x64/libcudnn7-doc_7.0.1.13-1+cuda8.0_amd64-deb
+//install The libcupti-dev library
+sudo apt-get -y install libcupti-dev
 
-https://drive.google.com/open?id=0B4V8Ikr3LWYHMV9jXzJuNW1JbFk
+//install pip
+sudo apt-get -y install python-pip python-dev
 
-https://drive.google.com/open?id=0B4V8Ikr3LWYHU3lxOHB0TWgtVjA
-
-
+//install tensorflow 
+pip install tensorflow-gpu
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64"
