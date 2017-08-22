@@ -18,6 +18,10 @@ sudo apt install -y nfs-common
 
 //instal install cuDNN v5.1
 
+https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v7/prod/8.0_20170802/Ubuntu16_04_x64/libcudnn7_7.0.1.13-1+cuda8.0_amd64-deb
+https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v7/prod/8.0_20170802/Ubuntu16_04_x64/libcudnn7-dev_7.0.1.13-1+cuda8.0_amd64-deb
+https://developer.nvidia.com/compute/machine-learning/cudnn/secure/v7/prod/8.0_20170802/Ubuntu16_04_x64/libcudnn7-doc_7.0.1.13-1+cuda8.0_amd64-deb
+
 https://drive.google.com/open?id=0B4V8Ikr3LWYHMV9jXzJuNW1JbFk
 
 https://drive.google.com/open?id=0B4V8Ikr3LWYHU3lxOHB0TWgtVjA
