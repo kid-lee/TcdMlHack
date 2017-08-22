@@ -12,3 +12,9 @@ sudo apt-get -y install cuda
 export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
 
 //instal install cuDNN v5.1
+
+https://drive.google.com/open?id=0B4V8Ikr3LWYHMV9jXzJuNW1JbFk
+
+https://drive.google.com/open?id=0B4V8Ikr3LWYHU3lxOHB0TWgtVjA
+
+
