@@ -15,9 +15,14 @@ sudo apt-get -y install nfs-common
 //install The libcupti-dev library
 sudo apt-get -y install libcupti-dev
 
+//install pip
+sudo apt-get -y install python-pip python-dev
+
+//install tensorflow 
+pip install tensorflow-gpu
+
 //Install NFS client 
 sudo mount -t nfs singlefs-1-vm:/data /mnt
-
 
 //instal install cuDNN v5.1
 sudo dpkg -i /mnt/libcudnn7_7.0.1.13-1+cuda8.0_amd64.deb
@@ -30,8 +35,4 @@ export CUDA_HOME=/usr/local/cuda
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64/
 
 
-//install pip
-sudo apt-get -y install python-pip python-dev
 
-//install tensorflow 
-pip install tensorflow-gpu
