@@ -1,1 +1,4 @@
 https://cloud.google.com/compute/docs/instances/connecting-to-instance#thirdpartytools 
+
+ssh-keygen -b 2048 -t rsa -f /tmp/sshkey -q -N ""
+
