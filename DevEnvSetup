@@ -1,11 +1,18 @@
 1: locate SSH key
 2: Test connection to cloud instance
+  2.1: create host name entry to VM instances' external IP, add entry "xxx.xxx.xxx.xxx  ml.mycloud.mii" in 
+       Windows:  c:\Windows\System32\Drivers\etc\hosts
+       Linux: /etc/hosts
+       
+  2.2: ssh -i [PATH_TO_PRIVATE_KEY] [USERNAME]@[ml.mycloud.mii]
+   
 3: download Pycharm (Pro edition) and configure remote development
   3.1: Download 
        https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=windows
        
-  3.2: Setup Dev enviroment 
+  3.2: Setup Dev enviroment, replace all IP address with "ml.mycloud.mii"
        https://medium.com/@erikhallstrm/work-remotely-with-pycharm-tensorflow-and-ssh-c60564be862d
+              
 4: Test remote dev Enviorment with test code
    # Python
      import tensorflow as tf
