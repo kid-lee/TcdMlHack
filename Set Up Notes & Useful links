@@ -7,3 +7,7 @@ https://cloud.google.com/compute/docs/instances/connecting-to-instance#standards
 
 tensorflow with pycharm
 https://medium.com/@erikhallstrm/work-remotely-with-pycharm-tensorflow-and-ssh-c60564be862d
+
+//File server access 
+sudo mount -t nfs singlefs-ml-1-vm:/data /mnt
+
