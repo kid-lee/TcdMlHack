@@ -25,8 +25,12 @@ pip install tensorflow-gpu
 sudo mount -t nfs singlefs-ml-1-vm:/data /mnt
 
 //instal install cuDNN v5.1
-sudo dpkg -i /mnt/libcudnn7_7.0.1.13-1+cuda8.0_amd64.deb
-sudo dpkg -i /mnt/libcudnn7-dev_7.0.1.13-1+cuda8.0_amd64.deb
+//sudo dpkg -i /mnt/libcudnn7_7.0.1.13-1+cuda8.0_amd64.deb
+sudo dpkg -i /mnt/libcudnn7_7.0.2.38-1+cuda8.0_amd64.deb
+
+//sudo dpkg -i /mnt/libcudnn7-dev_7.0.1.13-1+cuda8.0_amd64.deb
+sudo dpkg -i /mnt/libcudnn7-dev_7.0.2.38-1+cuda8.0_amd64.deb
+
 sudo cp /mnt/cuda/lib64/libcudnn* /usr/local/cuda/lib64
 sudo cp /mnt/cuda/include/cudnn.h /usr/local/cuda/include/
 sudo ln -s /usr/local/cuda/lib64/libcudnn.so /usr/local/cuda/lib64/libcudnn.so.6
