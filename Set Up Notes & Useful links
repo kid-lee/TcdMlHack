@@ -35,6 +35,10 @@ https://www.tensorflow.org/get_started/mnist/beginners
 
 Tensorboard 
 https://www.tensorflow.org/get_started/summaries_and_tensorboard
+tensorboard --logdir=tmp/tensorflow/mnist/logs/ --host 0.0.0.0 --port 6006
+Enable firewall open 6660
+http://ml.mycloud.mii:6006
+
 
 
 Install start apache
