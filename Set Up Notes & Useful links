@@ -11,3 +11,5 @@ https://medium.com/@erikhallstrm/work-remotely-with-pycharm-tensorflow-and-ssh-c
 //File server access 
 sudo mount -t nfs singlefs-ml-1-vm:/data /mnt
 
+//image Classifier in 5min
+https://www.youtube.com/watch?v=QfNvhPx5Px8&t=16s
