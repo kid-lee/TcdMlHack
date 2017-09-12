@@ -16,3 +16,16 @@ https://www.youtube.com/watch?v=2FmcHiLCwTU
 
 //image Classifier in 5min
 https://www.youtube.com/watch?v=QfNvhPx5Px8&t=16s
+
+
+//https://stackoverflow.com/questions/42128830/typeerror-only-integer-scalar-arrays-can-be-converted-to-a-scalar-index
+The code link you have provided uses a separate file named input_data.py to download data from MNIST using the following two lines in board.py
+
+import input_data 
+mnist = input_data.read_data_sets("/tmp/data/",one_hot=True)
+Since MNIST data is so frequently used for demonstration purposes, Tensorflow provides a way to automatically download it.
+
+Replace the above two lines in board.py with the following two lines and the error will disappear.
+
+from tensorflow.examples.tutorials.mnist import input_data
+mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
