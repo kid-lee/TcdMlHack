@@ -11,7 +11,12 @@
        https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=windows
        
   3.2: Setup Dev enviroment, replace all IP address with "ml.mycloud.mii"
-       https://medium.com/@erikhallstrm/work-remotely-with-pycharm-tensorflow-and-ssh-c60564be862d
+    3.2.1 Set up remote development with SSH private/public credentials
+    3.2.2 Set up remote development enviroment variable
+            export CUDA_HOME=/usr/local/cuda
+            export LD_LIBRARY_PATH=/usr/local/cuda/lib64/
+            
+    https://medium.com/@erikhallstrm/work-remotely-with-pycharm-tensorflow-and-ssh-c60564be862d
               
 4: Test remote dev Enviorment with test code
    # Python
