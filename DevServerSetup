@@ -38,5 +38,5 @@ sudo ln -s /usr/local/cuda/lib64/libcudnn.so /usr/local/cuda/lib64/libcudnn.so.6
 export CUDA_HOME=/usr/local/cuda
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64/
 
-
+confirgure google cloud firewall, allow tensorboard access
 
