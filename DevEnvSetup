@@ -15,6 +15,10 @@
     3.2.2 Set up remote development enviroment variable
             export CUDA_HOME=/usr/local/cuda
             export LD_LIBRARY_PATH=/usr/local/cuda/lib64/
+            
+            PYTHONUNBUFFERED=1
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64
+CUDA_HOME=/usr/local/cuda
            
            echo 'export LD_LIBRARY_PATH=”$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64"' >> ~/.bashrc
            echo 'export CUDA_HOME=/usr/local/cuda' >> ~/.bashrc
