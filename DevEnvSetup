@@ -1,3 +1,6 @@
+0: Prepare VM instances, leave off line, prepare SSH key pair. <Base on number of teams>
+   0.1: Assign one to each VM 
+   0.2: Distribute SSH key pair, one     
 1: locate SSH key
 2: Test connection to cloud instance
   2.1: create host name entry to VM instances' external IP, add entry "xxx.xxx.xxx.xxx  ml.mycloud.mii" in 
