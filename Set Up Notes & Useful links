@@ -50,6 +50,7 @@ https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/#0
 
 set cloud key
 
+for i in `seq 0 19`; do echo -e "TCDteam$i:$(cat TCDteam$i.pub)" > TCDteam$i.pub.list ; done
 gcloud config set project ml-test1-175116
 gcloud compute instances describe ml-test-1 --zone europe-west1-b
 gcloud compute instances add-metadata --zone europe-west1-b [INSTANCE_NAME] --metadata-from-file ssh-keys=[LIST_PATH]
