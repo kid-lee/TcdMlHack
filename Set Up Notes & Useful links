@@ -55,3 +55,4 @@ gcloud config set project ml-test1-175116
 gcloud compute instances describe ml-test-1 --zone europe-west1-b
 gcloud compute instances add-metadata --zone europe-west1-b [INSTANCE_NAME] --metadata-from-file ssh-keys=[LIST_PATH]
 
+for i in `seq 0 19`; do gcloud compute instances add-metadata --zone europe-west1-b  tcd-hackathon-team-$i --metadata-from-file ssh-keys=TCDteam$i.pub.list; done
