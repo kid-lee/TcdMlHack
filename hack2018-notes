@@ -1,0 +1,10 @@
+Monunt file server
+
+sudo mount -t nfs filestore-vm:/data /mnt
+
+
+Setup monitoring console
+gcloud compute ssh --ssh-flag=-L3000:localhost:3000 --project=huawei-hachathon-2018 --zone europe-west1-b filestore-vm
+
+
+&cqByXowuCX~Ac%
