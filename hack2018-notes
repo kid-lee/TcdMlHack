@@ -8,3 +8,11 @@ gcloud compute ssh --ssh-flag=-L3000:localhost:3000 --project=huawei-hachathon-2
 
 
 &cqByXowuCX~Ac%
+
+
+python 3.5.1
+
+Tensorflow 1.11
+Cuda 9.0
+Cudnn 7.3.1
+
