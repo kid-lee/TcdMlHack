@@ -1,0 +1,110 @@
+
+#
+import urllib.request
+import bs4
+import json
+import re
+
+kaggle = "https://www.kaggle.com"
+
+'''
+
+1: Ranking home page
+
+Racnking URL https://www.kaggle.com/rankings
+
+The Java Script
+
+    https://www.kaggle.com/rankings.json?group=competitions&page=10&pageSize=100  
+
+
+
+2: User section
+{"currentRanking":2,
+ "displayName":"bestfitting",
+ "thumbnailUrl":"https://kaggle2.blob.core.windows.net/avatars/thumbnails/708283-kg.jpg",
+ "userId":708283,
+ "userUrl":"/bestfitting",
+ "tier":"grandmaster",
+ "points":175856.0,
+ "joined":"2016-09-07T16:39:04.817Z",
+ "totalGoldMedals":8,
+ "totalSilverMedals":3,
+ "totalBronzeMedals":0},
+
+3:User URL
+ https://www.kaggle.com/[userUrl]
+
+4: user linkedin page
+ linkedInUrl":"https://www.linkedin.com/in/weiwei430/"
+
+
+https://www.kaggle.com/rankings.json?group=competitions&page=10&pageSize=100 
+
+'''
+
+Master_URL = "https://www.kaggle.com/rankings"
+
+RankingURL = "https://www.kaggle.com/rankings.json?group=competitions&page=10&pageSize=100"
+
+
+
+
+'''
+
+rankingpage = urllib.request.urlopen(RankingURL).read()
+#print(rankingpageTxt)
+soup = bs4.BeautifulSoup(rankingpage, "html.parser")
+#script = soup.find_all('script')
+#json_data = json.dump()
+#json to dict
+j_to_py = json.loads(soup.text)
+#dict element to list
+user_list = j_to_py.get("list")
+#print(type(user_list))
+# list format
+print(user_list[0]["userUrl"])
+for listItem in user_list:
+    #print(listItem["userUrl"])
+    print(kaggle+listItem["userUrl"])
+
+'''
+
+
+def userHomeList(url):
+    rankpage = urllib.request.urlopen(RankingURL).read()
+    rsoup = bs4.BeautifulSoup(rankpage, "html.parser")
+    json_to_py = json.loads(rsoup.text)
+    user_list = json_to_py.get("list")
+    urllist = []
+
+    for item in user_list:
+        urllist.append(kaggle + item["userUrl"])
+
+    return urllist
+
+
+#print(userHomeList("https://www.kaggle.com/rankings.json?group=competitions&page=3&pageSize=100"))
+
+
+def getLinkedInURL (url):
+    homePage = urllib.request.urlopen(url).read()
+    homesoup = bs4.BeautifulSoup(homePage, "html.parser")
+    #homesoup = bs4.BeautifulSoup(homePage, "lxml")
+
+    #urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', homesoup.text)
+    urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', homesoup.text)
+    #linkexp = re.compile('linkedin')
+    #return linkedinUrlExp.match(homesoup.text)
+    #urls = linkexp.match(homesoup.text)
+    print(urls)
+
+    #div = homesoup.find('div', id="data-component-name")
+
+
+
+getLinkedInURL("https://www.kaggle.com/sushize")
+
+#print(type(j_to_py))
+#print(j_to_py.get("list"))
+#print(len(j_to_py))

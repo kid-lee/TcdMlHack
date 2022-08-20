@@ -1,0 +1,9 @@
+#!/bin/bash
+#load email address in file called email-address
+
+filename='email-address'
+echo Start
+while read p; do
+ echo $p
+ ssh-keygen -b 2048 -t rsa -f $p -q -N "" -C $p
+done < $filename

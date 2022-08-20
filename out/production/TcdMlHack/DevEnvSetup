@@ -1,0 +1,41 @@
+0: Prepare VM instances, leave off line, prepare SSH key pair. <Base on number of teams>
+   0.1: Assign SSH key to each VM, 
+   0.2: boot up VM, create IP <-> team map
+   0.2: Collect team details
+   0.3: Distribute SSH key pair, one per team    
+1: locate SSH key
+2: Test connection to cloud instance
+  2.1: create host name entry to VM instances' external IP, add entry "xxx.xxx.xxx.xxx  ml.mycloud.mii" in 
+       Windows:  c:\Windows\System32\Drivers\etc\hosts
+       Linux: /etc/hosts
+       
+  2.2: ssh -i [PATH_TO_PRIVATE_KEY] [USERNAME]@[ml.mycloud.mii]
+   
+3: download Pycharm (Pro edition) and configure remote development
+  3.1: Download 
+       https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=windows
+       
+  3.2: Setup Dev enviroment, replace all IP address with "ml.mycloud.mii"
+    3.2.1 Set up remote development with SSH private/public credentials
+    3.2.2 Set up remote development enviroment variable
+            export CUDA_HOME=/usr/local/cuda
+            export LD_LIBRARY_PATH=/usr/local/cuda/lib64/
+            
+            PYTHONUNBUFFERED=1
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64
+CUDA_HOME=/usr/local/cuda
+           
+           echo 'export LD_LIBRARY_PATH=”$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64"' >> ~/.bashrc
+           echo 'export CUDA_HOME=/usr/local/cuda' >> ~/.bashrc
+           source ~/.bashrc
+            
+    https://medium.com/@erikhallstrm/work-remotely-with-pycharm-tensorflow-and-ssh-c60564be862d
+              
+4: Test remote dev Enviorment with test code
+   # Python
+     import tensorflow as tf
+     hello = tf.constant('Hello, TensorFlow!')
+     sess = tf.Session()
+     print(sess.run(hello))
+     
+5: Go to work
