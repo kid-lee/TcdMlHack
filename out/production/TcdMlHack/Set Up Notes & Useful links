@@ -1,0 +1,58 @@
+https://cloud.google.com/compute/docs/instances/connecting-to-instance#thirdpartytools 
+
+ssh-keygen -b 2048 -t rsa -f /tmp/sshkey -q -N ""
+
+access with 3rd party tool
+https://cloud.google.com/compute/docs/instances/connecting-to-instance#standardssh
+
+tensorflow with pycharm
+https://medium.com/@erikhallstrm/work-remotely-with-pycharm-tensorflow-and-ssh-c60564be862d
+
+//File server access 
+sudo mount -t nfs singlefs-ml-1-vm:/data /mnt
+
+//Tensorflow in 5min
+https://www.youtube.com/watch?v=2FmcHiLCwTU
+
+//image Classifier in 5min
+https://www.youtube.com/watch?v=QfNvhPx5Px8&t=16s
+
+
+//https://stackoverflow.com/questions/42128830/typeerror-only-integer-scalar-arrays-can-be-converted-to-a-scalar-index
+The code link you have provided uses a separate file named input_data.py to download data from MNIST using the following two lines in board.py
+
+import input_data 
+mnist = input_data.read_data_sets("/tmp/data/",one_hot=True)
+Since MNIST data is so frequently used for demonstration purposes, Tensorflow provides a way to automatically download it.
+
+Replace the above two lines in board.py with the following two lines and the error will disappear.
+
+from tensorflow.examples.tutorials.mnist import input_data
+mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
+
+mnist official
+https://www.tensorflow.org/get_started/mnist/beginners
+
+Tensorboard 
+https://www.tensorflow.org/get_started/summaries_and_tensorboard
+tensorboard --logdir=tmp/tensorflow/mnist/logs/ --host 0.0.0.0 --port 6006
+Enable firewall open 6660
+http://ml.mycloud.mii:6006
+
+
+
+Install start apache
+https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-16-04
+
+Tensorflow 
+transfer learning
+https://codelabs.developers.google.com/codelabs/tensorflow-for-poets/#0
+
+set cloud key
+
+for i in `seq 0 19`; do echo -e "TCDteam$i:$(cat TCDteam$i.pub)" > TCDteam$i.pub.list ; done
+gcloud config set project ml-test1-175116
+gcloud compute instances describe ml-test-1 --zone europe-west1-b
+gcloud compute instances add-metadata --zone europe-west1-b [INSTANCE_NAME] --metadata-from-file ssh-keys=[LIST_PATH]
+
+for i in `seq 0 19`; do gcloud compute instances add-metadata --zone europe-west1-b  tcd-hackathon-team-$i --metadata-from-file ssh-keys=TCDteam$i.pub.list; done
